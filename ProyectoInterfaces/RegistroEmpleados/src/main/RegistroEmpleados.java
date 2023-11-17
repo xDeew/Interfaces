@@ -7,8 +7,7 @@ import javax.swing.border.Border;
 import javax.swing.BorderFactory;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Image;
-import java.awt.Toolkit;
+
 
 public class RegistroEmpleados extends JFrame {
 
@@ -31,16 +30,14 @@ public class RegistroEmpleados extends JFrame {
 		JLabel lblTitulo = new JLabel("Registro de Empleados");
 		lblTitulo.setBounds(10, 10, 380, 25);
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTitulo.setFont(new Font(lblTitulo.getFont().getName(), Font.BOLD, 20));
+		lblTitulo.setFont(new Font(lblTitulo.getFont().getName(), Font.BOLD | Font.ITALIC, 20));
+
 		this.add(lblTitulo);
 
-		ImageIcon imagen = redimensionarImagen("resources/tuna.png", 170, 170);
-
-		Image iconoPropio = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/tuna.png"));
-		setIconImage(iconoPropio);
+		ImageIcon imagen = new ImageIcon("resources/tuna.png");
 
 		JLabel lblImagen = new JLabel(imagen);
-		lblImagen.setBounds(133, 35, 160, 160);
+		lblImagen.setBounds(130, 35, 150, 150); 
 		panel.add(lblImagen);
 
 		txtNombre = crearCampo("Nombre:", 200);
@@ -76,12 +73,6 @@ public class RegistroEmpleados extends JFrame {
 
 	}
 
-	private ImageIcon redimensionarImagen(String rutaImagen, int ancho, int alto) {
-		ImageIcon imagenOriginal = new ImageIcon(rutaImagen);
-		Image imagen = imagenOriginal.getImage();
-		Image imagenRedimensionada = imagen.getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
-		return new ImageIcon(imagenRedimensionada);
-	}
 
 	private JTextField crearCampo(String etiqueta, int y) {
 		JLabel lblCampo = new JLabel(etiqueta);
