@@ -55,8 +55,7 @@ public class AplicacionSwing extends JFrame {
 
         add(panel1);
         add(panel2);
-
-      
+        
         setTitle("Programa con 2 Paneles");
         setSize(540, 200); 
         setLocationRelativeTo(null);
