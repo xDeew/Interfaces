@@ -21,7 +21,7 @@ public class AplicacionValidadorContrasena extends JFrame {
 	private void crearInterfaz() {
 		setTitle("Validador de Contraseña");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setLayout(null); // Usamos null layout
+		setLayout(null); 
 
 		JLabel etiquetaUsuario = new JLabel("Usuario:");
 		etiquetaUsuario.setBounds(10, 10, 80, 25);
