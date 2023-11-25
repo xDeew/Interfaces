@@ -19,7 +19,7 @@ public class AplicacionValidadorContrasena extends JFrame {
 	}
 
 	private void crearInterfaz() {
-		setTitle("Validador de Contraseña");
+		setTitle("Validador de Contraseï¿½a");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(null); 
 
@@ -31,7 +31,7 @@ public class AplicacionValidadorContrasena extends JFrame {
 		campoUsuario.setBounds(100, 10, 165, 25);
 		add(campoUsuario);
 
-		JLabel etiquetaContrasena = new JLabel("Contraseña:");
+		JLabel etiquetaContrasena = new JLabel("Contraseï¿½a:");
 		etiquetaContrasena.setBounds(10, 40, 80, 25);
 		add(etiquetaContrasena);
 
@@ -39,17 +39,17 @@ public class AplicacionValidadorContrasena extends JFrame {
 		campoContrasena.setBounds(100, 40, 165, 25);
 		add(campoContrasena);
 
-		etiquetaCaracterEspecial = new JLabel("Debe contener al menos un carácter especial.");
+		etiquetaCaracterEspecial = new JLabel("Debe contener al menos un carÃ¡cter especial.");
 		etiquetaCaracterEspecial.setBounds(10, 70, 300, 25);
 		etiquetaCaracterEspecial.setForeground(Color.RED);
 		add(etiquetaCaracterEspecial);
 
-		etiquetaNumero = new JLabel("Debe contener al menos un número.");
+		etiquetaNumero = new JLabel("Debe contener al menos un nÃºmero.");
 		etiquetaNumero.setBounds(10, 100, 300, 25);
 		etiquetaNumero.setForeground(Color.RED);
 		add(etiquetaNumero);
 
-		etiquetaMayuscula = new JLabel("Debe contener al menos una letra en mayúscula.");
+		etiquetaMayuscula = new JLabel("Debe contener al menos una letra en mayÃºscula.");
 		etiquetaMayuscula.setBounds(10, 130, 300, 25);
 		etiquetaMayuscula.setForeground(Color.RED);
 		add(etiquetaMayuscula);
@@ -132,7 +132,7 @@ public class AplicacionValidadorContrasena extends JFrame {
 	}
 
 	private void mostrarDetalles() {
-		String informacionUsuario = "Usuario: " + campoUsuario.getText() + "\nContraseña: "
+		String informacionUsuario = "Usuario: " + campoUsuario.getText() + "\nContraseï¿½a: "
 				+ new String(campoContrasena.getPassword());
 		JOptionPane.showMessageDialog(this, informacionUsuario);
 	}
