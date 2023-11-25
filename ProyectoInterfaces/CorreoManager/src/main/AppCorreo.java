@@ -17,12 +17,12 @@ public class AppCorreo extends JFrame {
 	private JLabel etiquetaNombre, etiquetaDireccion, etiquetaTelefono, etiquetaCorreo;
 
 	public AppCorreo() {
-		// Configuración básica del JFrame
+		// Configuraciï¿½n bï¿½sica del JFrame
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(400, 300); // Ajuste del tamaño del JFrame para acomodar las etiquetas
-		setLayout(null); // No usaremos ningún Layout Manager
+		setSize(400, 300); // Ajuste del tamaï¿½o del JFrame para acomodar las etiquetas
+		setLayout(null); // No usaremos ningï¿½n Layout Manager
 
-		// Inicialización de los componentes
+		// Inicializaciï¿½n de los componentes
 		campoNombre = new JTextField();
 		campoDireccion = new JTextField();
 		campoTelefono = new JTextField();
@@ -30,15 +30,15 @@ public class AppCorreo extends JFrame {
 		botonMostrar = new JButton("Mostrar");
 		botonLimpiar = new JButton("Limpiar");
 		botonSalir = new JButton("Salir");
-		radioMovil = new JRadioButton("Móvil");
-		radioTelefonoFijo = new JRadioButton("Teléfono Fijo");
+		radioMovil = new JRadioButton("Movil");
+		radioTelefonoFijo = new JRadioButton("Telefono Fijo");
 		grupoTipoTelefono = new ButtonGroup();
 
-		// Inicialización de las etiquetas
+		// Inicializaciï¿½n de las etiquetas
 		etiquetaNombre = new JLabel("Nombre:");
-		etiquetaDireccion = new JLabel("Dirección:");
-		etiquetaTelefono = new JLabel("Teléfono:");
-		etiquetaCorreo = new JLabel("Correo Electrónico:");
+		etiquetaDireccion = new JLabel("Direccion:");
+		etiquetaTelefono = new JLabel("Telefono:");
+		etiquetaCorreo = new JLabel("Correo Electronico:");
 
 		// Configuramos los bounds manualmente (x, y, width, height) para las etiquetas
 		etiquetaNombre.setBounds(10, 10, 80, 25);
@@ -58,11 +58,11 @@ public class AppCorreo extends JFrame {
 		radioMovil.setBounds(130, 185, 100, 25);
 		radioTelefonoFijo.setBounds(230, 185, 120, 25);
 
-		// Añadir los radio buttons al grupo
+		// Aï¿½adir los radio buttons al grupo
 		grupoTipoTelefono.add(radioMovil);
 		grupoTipoTelefono.add(radioTelefonoFijo);
 
-		// Añadir los componentes al JFrame
+		// Aï¿½adir los componentes al JFrame
 		add(etiquetaNombre);
 		add(etiquetaDireccion);
 		add(etiquetaTelefono);
@@ -77,13 +77,13 @@ public class AppCorreo extends JFrame {
 		add(radioMovil);
 		add(radioTelefonoFijo);
 
-		// Listener para el campo de correo electrónico
+		// Listener para el campo de correo electrï¿½nico
 		campoCorreo.getDocument().addDocumentListener(new ValidadorEmail());
 
-		// Listener para el campo de teléfono
+		// Listener para el campo de telï¿½fono
 		campoTelefono.getDocument().addDocumentListener(new ValidadorTelefono());
 
-		// Listener para el botón Mostrar
+		// Listener para el botï¿½n Mostrar
 		botonMostrar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -91,7 +91,7 @@ public class AppCorreo extends JFrame {
 			}
 		});
 
-		// Listener para el botón Limpiar
+		// Listener para el botï¿½n Limpiar
 		botonLimpiar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -110,9 +110,13 @@ public class AppCorreo extends JFrame {
 	}
 
 	private void mostrarDatosUsuario() {
-		String informacionUsuario = "Nombre: " + campoNombre.getText() + "\nDirección: " + campoDireccion.getText()
-				+ "\nTeléfono: " + campoTelefono.getText() + "\nCorreo Electrónico: " + campoCorreo.getText();
-		JOptionPane.showMessageDialog(this, informacionUsuario);
+	    if (campoCorreo.getBackground().equals(Color.GREEN) && campoTelefono.getBackground().equals(Color.GREEN)) {
+	        String informacionUsuario = "Nombre: " + campoNombre.getText() + "\nDireccion: " + campoDireccion.getText()
+	                + "\nTelefono: " + campoTelefono.getText() + "\nCorreo Electronico: " + campoCorreo.getText();
+	        JOptionPane.showMessageDialog(this, informacionUsuario);
+	    } else {
+	        JOptionPane.showMessageDialog(this, "No puede mostrar datos incorrectos. Por favor, revise el correo electrÃ³nico y el telÃ©fono.", "Error", JOptionPane.ERROR_MESSAGE);
+	    }
 	}
 
 	private void limpiarCampos() {
