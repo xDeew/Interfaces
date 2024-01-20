@@ -26,14 +26,14 @@ public class AppCorreo extends JFrame {
 		botonMostrar = new JButton("Mostrar");
 		botonLimpiar = new JButton("Limpiar");
 		botonSalir = new JButton("Salir");
-		radioMovil = new JRadioButton("Móvil");
-		radioTelefonoFijo = new JRadioButton("Teléfono Fijo");
+		radioMovil = new JRadioButton("Movil");
+		radioTelefonoFijo = new JRadioButton("Telefono Fijo");
 		grupoTipoTelefono = new ButtonGroup();
 
 		etiquetaNombre = new JLabel("Nombre:");
-		etiquetaDireccion = new JLabel("Dirección:");
-		etiquetaTelefono = new JLabel("Teléfono:");
-		etiquetaCorreo = new JLabel("Correo Electrónico:");
+		etiquetaDireccion = new JLabel("Direccion:");
+		etiquetaTelefono = new JLabel("Telefono:");
+		etiquetaCorreo = new JLabel("Correo Electronico:");
 
 		etiquetaNombre.setBounds(10, 10, 80, 25);
 		etiquetaDireccion.setBounds(10, 45, 80, 25);
@@ -53,6 +53,8 @@ public class AppCorreo extends JFrame {
 
 		grupoTipoTelefono.add(radioMovil);
 		grupoTipoTelefono.add(radioTelefonoFijo);
+		radioTelefonoFijo.setEnabled(false);
+		radioMovil.setEnabled(false);
 
 		add(etiquetaNombre);
 		add(etiquetaDireccion);
@@ -97,9 +99,15 @@ public class AppCorreo extends JFrame {
 	}
 
 	private void mostrarDatosUsuario() {
-		String informacionUsuario = "Nombre: " + campoNombre.getText() + "\nDirección: " + campoDireccion.getText()
-				+ "\nTeléfono: " + campoTelefono.getText() + "\nCorreo Electrónico: " + campoCorreo.getText();
-		JOptionPane.showMessageDialog(this, informacionUsuario);
+		if (campoCorreo.getBackground().equals(Color.GREEN) && campoTelefono.getBackground().equals(Color.GREEN)) {
+			String informacionUsuario = "Nombre: " + campoNombre.getText() + "\nDireccion: " + campoDireccion.getText()
+					+ "\nTelefono: " + campoTelefono.getText() + "\nCorreo Electronico: " + campoCorreo.getText();
+			JOptionPane.showMessageDialog(this, informacionUsuario);
+		} else {
+			JOptionPane.showMessageDialog(this,
+					"No puede mostrar datos incorrectos. Por favor, revise el correo electrÃ³nico y el telÃ©fono.",
+					"Error", JOptionPane.ERROR_MESSAGE);
+		}
 	}
 
 	private void limpiarCampos() {
@@ -156,9 +164,11 @@ public class AppCorreo extends JFrame {
 			} else if (texto.startsWith("6") && texto.length() == 9) {
 				campoTelefono.setBackground(Color.GREEN);
 				radioMovil.setSelected(true);
+
 			} else {
 				campoTelefono.setBackground(Color.RED);
 				grupoTipoTelefono.clearSelection();
+			
 			}
 		}
 	}
