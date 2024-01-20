@@ -13,16 +13,13 @@ public class AppCorreo extends JFrame {
 	private JButton botonMostrar, botonLimpiar, botonSalir;
 	private JRadioButton radioMovil, radioTelefonoFijo;
 	private ButtonGroup grupoTipoTelefono;
-	// Etiquetas para los campos
 	private JLabel etiquetaNombre, etiquetaDireccion, etiquetaTelefono, etiquetaCorreo;
 
 	public AppCorreo() {
-		// Configuraci�n b�sica del JFrame
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(400, 300); // Ajuste del tama�o del JFrame para acomodar las etiquetas
-		setLayout(null); // No usaremos ning�n Layout Manager
+		setSize(400, 300); 
+		setLayout(null); 
 
-		// Inicializaci�n de los componentes
 		campoNombre = new JTextField();
 		campoDireccion = new JTextField();
 		campoTelefono = new JTextField();
@@ -34,20 +31,17 @@ public class AppCorreo extends JFrame {
 		radioTelefonoFijo = new JRadioButton("Telefono Fijo");
 		grupoTipoTelefono = new ButtonGroup();
 
-		// Inicializaci�n de las etiquetas
 		etiquetaNombre = new JLabel("Nombre:");
 		etiquetaDireccion = new JLabel("Direccion:");
 		etiquetaTelefono = new JLabel("Telefono:");
 		etiquetaCorreo = new JLabel("Correo Electronico:");
 
-		// Configuramos los bounds manualmente (x, y, width, height) para las etiquetas
 		etiquetaNombre.setBounds(10, 10, 80, 25);
 		etiquetaDireccion.setBounds(10, 45, 80, 25);
 		etiquetaTelefono.setBounds(10, 80, 80, 25);
 		etiquetaCorreo.setBounds(10, 115, 120, 25);
 
-		// Configuramos los bounds manualmente (x, y, width, height) para los campos de
-		// texto
+		
 		campoNombre.setBounds(130, 10, 200, 25);
 		campoDireccion.setBounds(130, 45, 200, 25);
 		campoTelefono.setBounds(130, 80, 200, 25);
@@ -58,11 +52,11 @@ public class AppCorreo extends JFrame {
 		radioMovil.setBounds(130, 185, 100, 25);
 		radioTelefonoFijo.setBounds(230, 185, 120, 25);
 
-		// A�adir los radio buttons al grupo
 		grupoTipoTelefono.add(radioMovil);
 		grupoTipoTelefono.add(radioTelefonoFijo);
+		radioTelefonoFijo.setEnabled(false);
+		radioMovil.setEnabled(false);
 
-		// A�adir los componentes al JFrame
 		add(etiquetaNombre);
 		add(etiquetaDireccion);
 		add(etiquetaTelefono);
@@ -77,13 +71,10 @@ public class AppCorreo extends JFrame {
 		add(radioMovil);
 		add(radioTelefonoFijo);
 
-		// Listener para el campo de correo electr�nico
 		campoCorreo.getDocument().addDocumentListener(new ValidadorEmail());
 
-		// Listener para el campo de tel�fono
 		campoTelefono.getDocument().addDocumentListener(new ValidadorTelefono());
 
-		// Listener para el bot�n Mostrar
 		botonMostrar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -91,7 +82,6 @@ public class AppCorreo extends JFrame {
 			}
 		});
 
-		// Listener para el bot�n Limpiar
 		botonLimpiar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -110,13 +100,15 @@ public class AppCorreo extends JFrame {
 	}
 
 	private void mostrarDatosUsuario() {
-	    if (campoCorreo.getBackground().equals(Color.GREEN) && campoTelefono.getBackground().equals(Color.GREEN)) {
-	        String informacionUsuario = "Nombre: " + campoNombre.getText() + "\nDireccion: " + campoDireccion.getText()
-	                + "\nTelefono: " + campoTelefono.getText() + "\nCorreo Electronico: " + campoCorreo.getText();
-	        JOptionPane.showMessageDialog(this, informacionUsuario);
-	    } else {
-	        JOptionPane.showMessageDialog(this, "No puede mostrar datos incorrectos. Por favor, revise el correo electrónico y el teléfono.", "Error", JOptionPane.ERROR_MESSAGE);
-	    }
+		if (campoCorreo.getBackground().equals(Color.GREEN) && campoTelefono.getBackground().equals(Color.GREEN)) {
+			String informacionUsuario = "Nombre: " + campoNombre.getText() + "\nDireccion: " + campoDireccion.getText()
+					+ "\nTelefono: " + campoTelefono.getText() + "\nCorreo Electronico: " + campoCorreo.getText();
+			JOptionPane.showMessageDialog(this, informacionUsuario);
+		} else {
+			JOptionPane.showMessageDialog(this,
+					"No puede mostrar datos incorrectos. Por favor, revise el correo electrónico y el teléfono.",
+					"Error", JOptionPane.ERROR_MESSAGE);
+		}
 	}
 
 	private void limpiarCampos() {
@@ -173,9 +165,11 @@ public class AppCorreo extends JFrame {
 			} else if (texto.startsWith("6") && texto.length() == 9) {
 				campoTelefono.setBackground(Color.GREEN);
 				radioMovil.setSelected(true);
+
 			} else {
 				campoTelefono.setBackground(Color.RED);
 				grupoTipoTelefono.clearSelection();
+			
 			}
 		}
 	}

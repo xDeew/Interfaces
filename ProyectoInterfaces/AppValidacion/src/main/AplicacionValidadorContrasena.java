@@ -31,7 +31,7 @@ public class AplicacionValidadorContrasena extends JFrame {
 		campoUsuario.setBounds(100, 10, 165, 25);
 		add(campoUsuario);
 
-		JLabel etiquetaContrasena = new JLabel("Contrase�a:");
+		JLabel etiquetaContrasena = new JLabel("Contrasena:");
 		etiquetaContrasena.setBounds(10, 40, 80, 25);
 		add(etiquetaContrasena);
 
