@@ -8,21 +8,17 @@ import java.awt.event.*;
 
 public class AppCorreo extends JFrame {
 
-	// Componentes de la UI
 	private JTextField campoNombre, campoDireccion, campoTelefono, campoCorreo;
 	private JButton botonMostrar, botonLimpiar, botonSalir;
 	private JRadioButton radioMovil, radioTelefonoFijo;
 	private ButtonGroup grupoTipoTelefono;
-	// Etiquetas para los campos
 	private JLabel etiquetaNombre, etiquetaDireccion, etiquetaTelefono, etiquetaCorreo;
 
 	public AppCorreo() {
-		// Configuración básica del JFrame
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(400, 300); // Ajuste del tamaño del JFrame para acomodar las etiquetas
-		setLayout(null); // No usaremos ningún Layout Manager
+		setSize(400, 300); 
+		setLayout(null); 
 
-		// Inicialización de los componentes
 		campoNombre = new JTextField();
 		campoDireccion = new JTextField();
 		campoTelefono = new JTextField();
@@ -34,20 +30,17 @@ public class AppCorreo extends JFrame {
 		radioTelefonoFijo = new JRadioButton("Teléfono Fijo");
 		grupoTipoTelefono = new ButtonGroup();
 
-		// Inicialización de las etiquetas
 		etiquetaNombre = new JLabel("Nombre:");
 		etiquetaDireccion = new JLabel("Dirección:");
 		etiquetaTelefono = new JLabel("Teléfono:");
 		etiquetaCorreo = new JLabel("Correo Electrónico:");
 
-		// Configuramos los bounds manualmente (x, y, width, height) para las etiquetas
 		etiquetaNombre.setBounds(10, 10, 80, 25);
 		etiquetaDireccion.setBounds(10, 45, 80, 25);
 		etiquetaTelefono.setBounds(10, 80, 80, 25);
 		etiquetaCorreo.setBounds(10, 115, 120, 25);
 
-		// Configuramos los bounds manualmente (x, y, width, height) para los campos de
-		// texto
+		
 		campoNombre.setBounds(130, 10, 200, 25);
 		campoDireccion.setBounds(130, 45, 200, 25);
 		campoTelefono.setBounds(130, 80, 200, 25);
@@ -58,11 +51,9 @@ public class AppCorreo extends JFrame {
 		radioMovil.setBounds(130, 185, 100, 25);
 		radioTelefonoFijo.setBounds(230, 185, 120, 25);
 
-		// Añadir los radio buttons al grupo
 		grupoTipoTelefono.add(radioMovil);
 		grupoTipoTelefono.add(radioTelefonoFijo);
 
-		// Añadir los componentes al JFrame
 		add(etiquetaNombre);
 		add(etiquetaDireccion);
 		add(etiquetaTelefono);
@@ -77,13 +68,10 @@ public class AppCorreo extends JFrame {
 		add(radioMovil);
 		add(radioTelefonoFijo);
 
-		// Listener para el campo de correo electrónico
 		campoCorreo.getDocument().addDocumentListener(new ValidadorEmail());
 
-		// Listener para el campo de teléfono
 		campoTelefono.getDocument().addDocumentListener(new ValidadorTelefono());
 
-		// Listener para el botón Mostrar
 		botonMostrar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -91,7 +79,6 @@ public class AppCorreo extends JFrame {
 			}
 		});
 
-		// Listener para el botón Limpiar
 		botonLimpiar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
