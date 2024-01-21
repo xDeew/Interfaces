@@ -117,11 +117,11 @@ public class POSApplication extends JFrame {
 		gbc.gridx = 0;
 		gbc.gridy = 2;
 		gbc.gridwidth = 2;
-		gbc.weightx = 0.1; // Reducir el peso para que ocupe menos espacio horizontal
+		gbc.weightx = 0.1; 
 		gbc.weighty = 0;
-		gbc.anchor = GridBagConstraints.WEST; // Alinear al oeste (izquierda)
+		gbc.anchor = GridBagConstraints.WEST; 
 		gbc.fill = GridBagConstraints.NONE;
-		gbc.insets = new Insets(0, 10, 0, 0); // Ajustar los insets si es necesario para un mayor desplazamiento
+		gbc.insets = new Insets(0, 10, 0, 0); 
 		topPanel.add(totalItemsLabel, gbc);
 
 		totalCostField = new JLabel("Total: 0,00 €");
