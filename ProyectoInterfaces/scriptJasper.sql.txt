@@ -1,0 +1,34 @@
+CREATE DATABASE IF NOT EXISTS practica_jasper; 
+USE practica_jasper;
+
+CREATE TABLE IF NOT EXISTS clientes (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(50),
+  apellido VARCHAR(50),
+  direccion VARCHAR(100),
+  telefono VARCHAR(20),
+  codigo_postal VARCHAR(10),
+  ciudad VARCHAR(50),
+  correo_electronico VARCHAR(100)
+);
+
+INSERT INTO clientes (nombre, apellido, direccion, telefono, codigo_postal, ciudad, correo_electronico) VALUES
+('Juan', 'Pérez', 'Calle Falsa 123', '555-1234', '28001', 'Madrid', 'juan.perez@example.com'),
+('Ana', 'García', 'Avenida Siempreviva 456', '555-5678', '28002', 'Madrid', 'ana.garcia@example.com'),
+('Luis', 'Martín', 'Plaza Mayor 789', '555-9012', '28003', 'Madrid', 'luis.martin@example.com'),
+
+('María', 'López', 'Carrer de Balmes 101', '555-3456', '08001', 'Barcelona', 'maria.lopez@example.com'),
+('Carlos', 'González', 'Gran Via 234', '555-7890', '08002', 'Barcelona', 'carlos.gonzalez@example.com'),
+('Sandra', 'Navarro', 'Passeig de Gràcia 567', '555-2345', '08003', 'Barcelona', 'sandra.navarro@example.com'),
+
+('Raquel', 'Dominguez', 'Rúa de Urzáiz 890', '555-6789', '36201', 'Vigo', 'raquel.dominguez@example.com'),
+('Jorge', 'Nieto', 'Avenida de Gran Vía 123', '555-4321', '36202', 'Vigo', 'jorge.nieto@example.com'),
+('Sofía', 'Moreno', 'Praza de Compostela 456', '555-8765', '36203', 'Vigo', 'sofia.moreno@example.com'),
+
+('David', 'Jiménez', 'Calle Constitución 101', '555-1357', '50001', 'Zaragoza', 'david.jimenez@example.com'),
+('Sara', 'Herrera', 'Paseo de la Independencia 246', '555-2468', '50002', 'Zaragoza', 'sara.herrera@example.com'),
+('Óscar', 'Gutiérrez', 'Plaza del Pilar 369', '555-3579', '50003', 'Zaragoza', 'oscar.gutierrez@example.com'),
+
+('Irene', 'Castillo', 'Calle de la Princesa 147', '555-4680', '29001', 'Málaga', 'irene.castillo@example.com'),
+('Javier', 'Cortés', 'Alameda Principal 258', '555-5791', '29002', 'Málaga', 'javier.cortes@example.com'),
+('Patricia', 'Ramírez', 'Paseo del Parque 369', '555-6802', '29003', 'Málaga', 'patricia.ramirez@example.com');
